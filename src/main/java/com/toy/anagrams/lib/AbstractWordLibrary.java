@@ -1,24 +1,48 @@
 package com.toy.anagrams.lib;
 
 /**
- *
+ * Defining logic for the Anagram Game application.
  */
-public abstract class AbstractWordLibrary {
+public interface AbstractWordLibrary {
 
-    protected AbstractWordLibrary() {
-    }
-
-    public static AbstractWordLibrary getDefault() {
+    /**
+     * Get StaticWordLibrary object with words and scrambled words arrays.
+     *
+     * @return StaticWordLibrary instance
+     */
+    static AbstractWordLibrary getDefault() {
         return StaticWordLibrary.DEFAULT;
     }
 
-    public abstract String getWord(int idx);
+    /**
+     * Get word by array index.
+     *
+     * @param idx array index
+     * @return initial word
+     */
+    String getWord(int idx);
 
+    /**
+     * Get scrambled word by array index.
+     *
+     * @param idx array index
+     * @return scrambled word
+     */
+    String getScrambledWord(int idx);
 
-    public abstract String getScrambledWord(int idx);
+    /**
+     * Get arrays size.
+     *
+     * @return array size
+     */
+    int getSize();
 
-
-    public abstract int getSize();
-
-    public abstract boolean isCorrect(int idx, String userGuess);
+    /**
+     * Check if user choice is correct.
+     *
+     * @param idx       array index
+     * @param userGuess user entered word
+     * @return if the correct answer
+     */
+    boolean isCorrect(int idx, String userGuess);
 }

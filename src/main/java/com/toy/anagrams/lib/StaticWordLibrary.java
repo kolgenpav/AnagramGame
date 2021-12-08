@@ -1,7 +1,12 @@
 package com.toy.anagrams.lib;
 
-final class StaticWordLibrary extends AbstractWordLibrary {
-
+/**
+ * Class with arrays of unscrambled and scrambled words and the game logic method implantation.
+ */
+final class StaticWordLibrary implements AbstractWordLibrary {
+    /**
+     * Array with unscrambled words.
+     */
     private static final String[] WORD_LIST = {
             "abstraction",
             "ambiguous",
@@ -49,6 +54,9 @@ final class StaticWordLibrary extends AbstractWordLibrary {
             "unsigned",
             "traditional"};
 
+    /**
+     * Array with scrambled words.
+     */
     private static final String[] SCRAMBLED_WORD_LIST = {
             "batsartcoin",
             "maibuguos",
@@ -97,18 +105,19 @@ final class StaticWordLibrary extends AbstractWordLibrary {
             "rtdatioialn"
     };
 
-    private int unused;
-
-    final static AbstractWordLibrary DEFAULT = new StaticWordLibrary();
+    /**
+     * Instance of the StaticWordLibrary class.
+     */
+    static final AbstractWordLibrary DEFAULT = new StaticWordLibrary();
 
     private StaticWordLibrary() {
     }
 
-    public String getWord(int idx) {
+    public String getWord(final int idx) {
         return WORD_LIST[idx];
     }
 
-    public String getScrambledWord(int idx) {
+    public String getScrambledWord(final int idx) {
         return SCRAMBLED_WORD_LIST[idx];
     }
 
@@ -116,7 +125,7 @@ final class StaticWordLibrary extends AbstractWordLibrary {
         return WORD_LIST.length;
     }
 
-    public boolean isCorrect(int idx, String userGuess) {
+    public boolean isCorrect(final int idx, final String userGuess) {
         return userGuess.equals(getWord(idx));
     }
 }

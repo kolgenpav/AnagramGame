@@ -3,13 +3,19 @@ package com.toy.anagrams.ui;
 import java.awt.Dimension;
 import java.awt.Point;
 import java.awt.Rectangle;
-import java.awt.event.ActionListener;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 
+/**
+ * JDialog window with about game info.
+ */
 public class About extends JDialog {
-
-    public About(JFrame parent) {
+    /**
+     * Constructor of JDialog instance.
+     *
+     * @param parent parent JFrame
+     */
+    public About(final JFrame parent) {
         super(parent, true);
         initComponents();
         pack();
@@ -21,12 +27,13 @@ public class About extends JDialog {
         setLocation(new Point(x, y));
     }
 
-    private void initComponents() {//GEN-BEGIN:initComponents
+    @SuppressWarnings("checkstyle:MagicNumber")
+    private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        mainPanel = new javax.swing.JPanel();
-        copyrightTextArea = new javax.swing.JTextArea();
-        closeButton = new javax.swing.JButton();
+        javax.swing.JPanel mainPanel = new javax.swing.JPanel();
+        javax.swing.JTextArea copyrightTextArea = new javax.swing.JTextArea();
+        javax.swing.JButton closeButton = new javax.swing.JButton();
 
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
@@ -54,11 +61,7 @@ public class About extends JDialog {
 
         closeButton.setMnemonic('C');
         closeButton.setText("Close");
-        closeButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                closeButtonActionPerformed(evt);
-            }
-        });
+        closeButton.addActionListener(this::closeButtonActionPerformed);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -74,12 +77,8 @@ public class About extends JDialog {
 
     }
 
-    private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
+    private void closeButtonActionPerformed(final java.awt.event.ActionEvent evt) {
         setVisible(false);
         dispose();
     }
-
-    private javax.swing.JButton closeButton;
-    private javax.swing.JTextArea copyrightTextArea;
-    private javax.swing.JPanel mainPanel;
 }

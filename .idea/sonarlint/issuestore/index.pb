@@ -1,0 +1,10 @@
+
+?
+AnagramGame.iml,a\7\a75802ba64a57b167c0ad557f4ba0d94c998340e
+7
+pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
+9
+	.dcignore,7\7\7791000a9a93019a87d67e0b676c86447ba29c67
+:
+
+.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
