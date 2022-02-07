@@ -81,4 +81,22 @@ public class About extends JDialog {
         setVisible(false);
         dispose();
     }
+
+    /**
+     * GCD calculation - для розрахунку метрик Холстеда.
+     *
+     * @param g0 first number
+     * @param g1 second nuber
+     * @return great-common delimiter
+     */
+    @SuppressWarnings("CheckStyle")
+    int getGCD(int g0, int g1) {
+        while (g1 != 0) {
+            int g2 = g0 % g1;
+            g0 = g1;
+            g1 = g2;
+        }
+        return g0;
+    }
+
 }

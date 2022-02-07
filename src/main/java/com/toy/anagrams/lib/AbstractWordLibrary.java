@@ -1,8 +1,6 @@
 package com.toy.anagrams.lib;
 
-/**
- * Defining logic for the Anagram Game application.
- */
+
 public interface AbstractWordLibrary {
 
     /**

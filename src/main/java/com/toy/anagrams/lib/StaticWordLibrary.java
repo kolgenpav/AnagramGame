@@ -4,6 +4,7 @@ package com.toy.anagrams.lib;
  * Class with arrays of unscrambled and scrambled words and the game logic method implantation.
  */
 final class StaticWordLibrary implements AbstractWordLibrary {
+
     /**
      * Array with unscrambled words.
      */
@@ -126,6 +127,9 @@ final class StaticWordLibrary implements AbstractWordLibrary {
     }
 
     public boolean isCorrect(final int idx, final String userGuess) {
+        if (!userGuess.matches("[a-zA-Z]+")) {
+            throw new IllegalArgumentException("Guess must contain only letters");
+        }
         return userGuess.equals(getWord(idx));
     }
 }
