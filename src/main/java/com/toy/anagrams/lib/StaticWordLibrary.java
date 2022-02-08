@@ -130,6 +130,12 @@ final class StaticWordLibrary implements AbstractWordLibrary {
         if (!userGuess.matches("[a-zA-Z]+")) {
             throw new IllegalArgumentException("Guess must contain only letters");
         }
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+            Thread.currentThread().interrupt();
+        }
         return userGuess.equals(getWord(idx));
     }
 }
