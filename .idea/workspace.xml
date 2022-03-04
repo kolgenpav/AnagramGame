@@ -4,26 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5962b21a-ecab-4624-a687-ce0ea41dd56e" name="Changes" comment="Project inspected by CheckStyle (with my editions - my_su_check.xml - see comments inside) and IJ inspections. Code was refactored - no warnings">
+    <list default="true" id="5962b21a-ecab-4624-a687-ce0ea41dd56e" name="Changes" comment="Added Assumption Test and Test Suite.">
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/toy/anagrams/ui/AnagramsTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AnagramGame.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AnagramGame.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/toy/anagrams/lib/AbstractWordLibrary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/toy/anagrams/lib/AbstractWordLibrary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/toy/anagrams/lib/StaticWordLibrary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/toy/anagrams/lib/StaticWordLibrary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/toy/anagrams/ui/About.form" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/toy/anagrams/ui/About.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/toy/anagrams/ui/About.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/toy/anagrams/ui/Anagrams.form" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/toy/anagrams/ui/Anagrams.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/toy/anagrams/ui/Anagrams.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/toy/anagrams/lib/AnagramsAssumptionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/toy/anagrams/lib/AnagramsAssumptionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExportToHTMLSettings">
+    <option name="OPEN_IN_BROWSER" value="true" />
+    <option name="OUTPUT_DIRECTORY" value="C:\Users\kgp\Dropbox\EDU\YTPZ\_New course\AnagramGame\reports" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -68,12 +68,12 @@
     <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../../../pmd/bin/pmd.bat" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/reports" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
@@ -81,13 +81,76 @@
       <recent name="com.toy.anagrams.lib.AbstractWordLibrary" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.toy.anagrams.ui" />
       <recent name="com.toy.anagrams.lib" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.UserGuessNegativeTest.isCorrect">
+  <component name="RunManager" selected="JUnit.AnagramsTest.check">
     <configuration name="AnagramGame" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.toy.anagrams.ui.Anagrams" />
       <module name="AnagramGame" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AnagramsAssumptionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="AnagramGame" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.toy.anagrams.lib.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.toy.anagrams.lib" />
+      <option name="MAIN_CLASS_NAME" value="com.toy.anagrams.lib.AnagramsAssumptionTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AnagramsAssumptionTest.trueAssumption" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="AnagramGame" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.toy.anagrams.lib.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.toy.anagrams.lib" />
+      <option name="MAIN_CLASS_NAME" value="com.toy.anagrams.lib.AnagramsAssumptionTest" />
+      <option name="METHOD_NAME" value="trueAssumption" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AnagramsTestSuite" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="AnagramGame" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.toy.anagrams.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.toy.anagrams" />
+      <option name="MAIN_CLASS_NAME" value="com.toy.anagrams.AnagramsTestSuite" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AnagramsTest.check" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="AnagramGame" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.toy.anagrams.ui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.toy.anagrams.ui" />
+      <option name="MAIN_CLASS_NAME" value="com.toy.anagrams.ui.AnagramsTest" />
+      <option name="METHOD_NAME" value="check" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -107,43 +170,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StaticWordLibraryTest.getWord" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="AnagramGame" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.toy.anagrams.lib.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.toy.anagrams.lib" />
-      <option name="MAIN_CLASS_NAME" value="com.toy.anagrams.lib.StaticWordLibraryTest" />
-      <option name="METHOD_NAME" value="getWord" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserGuessNegativeTest.isCorrect" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="AnagramGame" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.toy.anagrams.lib.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.toy.anagrams.lib" />
-      <option name="MAIN_CLASS_NAME" value="com.toy.anagrams.lib.UserGuessNegativeTest" />
-      <option name="METHOD_NAME" value="isCorrect" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.UserGuessNegativeTest.isCorrect" />
+        <item itemvalue="JUnit.AnagramsTest.check" />
+        <item itemvalue="JUnit.AnagramsAssumptionTest.trueAssumption" />
         <item itemvalue="JUnit.StaticWordLibraryTest" />
-        <item itemvalue="JUnit.StaticWordLibraryTest.getWord" />
+        <item itemvalue="JUnit.AnagramsTestSuite" />
+        <item itemvalue="JUnit.AnagramsAssumptionTest" />
       </list>
     </recent_temporary>
   </component>
@@ -177,7 +210,21 @@
       <option name="project" value="LOCAL" />
       <updated>1638950855929</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added Positive and Negative Tests for StaticWordLibrary">
+      <created>1644226438548</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1644226438549</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Added Assumption Test and Test Suite.">
+      <created>1644338192839</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1644338192839</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -206,10 +253,31 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Project created from existing source codes and run confoguration added - initial commit" />
     <MESSAGE value="Project inspected by CheckStyle (with my editions - my_su_check.xml - see comments inside) and IJ inspections. Code was refactored - no warnings" />
-    <option name="LAST_COMMIT_MESSAGE" value="Project inspected by CheckStyle (with my editions - my_su_check.xml - see comments inside) and IJ inspections. Code was refactored - no warnings" />
+    <MESSAGE value="Added Positive and Negative Tests for StaticWordLibrary" />
+    <MESSAGE value="Added Assumption Test and Test Suite." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Assumption Test and Test Suite." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/toy/anagrams/ui/AnagramsTest.java</url>
+          <line>18</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
     <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/AnagramGame$StaticWordLibraryTest.ic" NAME="StaticWordLibraryTest Coverage Results" MODIFIED="1646392079268" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.toy.anagrams.lib.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/AnagramGame$AnagramsTestSuite.ic" NAME="AnagramsTestSuite Coverage Results" MODIFIED="1646325348141" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.toy.anagrams.*</FILTER>
+    </SUITE>
   </component>
 </project>

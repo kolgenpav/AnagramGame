@@ -11,3 +11,11 @@ c
 3src/main/java/com/toy/anagrams/ui/package-info.java,5\9\59e345391c80c42c4069f436e152aa6bdc08dcb7
 i
 9src/main/java/com/toy/anagrams/ui/NullPointerProblem.java,7\c\7c31556ca18ac4f7c7b6f5e77e39e2a2efb924e2
+\
+,src/main/java/com/toy/anagrams/ui/About.java,8\4\848222bdb67c01d8c6f0f1cfa728bc5a3162e996
+_
+/src/main/java/com/toy/anagrams/ui/Anagrams.java,3\e\3eb8467d89e3ff327686d09eaf82d7a630cafb58
+m
+=src/test/java/com/toy/anagrams/lib/StaticWordLibraryTest.java,4\1\4182383c0281d177664905db66006efd9de2a630
+?
+AnagramGame.iml,a\7\a75802ba64a57b167c0ad557f4ba0d94c998340e

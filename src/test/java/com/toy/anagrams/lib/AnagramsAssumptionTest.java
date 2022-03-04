@@ -15,8 +15,8 @@ class AnagramsAssumptionTest {
     @DisplayName("Checks the isCorrect method timeout only after checking the method works")
     @Test
     void trueAssumption() {
-        assumeTrue(library.isCorrect(0, "qwerty"), "Method isCorrect works wrong!");
-        assertTimeout(Duration.ofMillis(120), () ->
+        assumeTrue(library.isCorrect(0, "abstraction"), "Method isCorrect works wrong!");
+        assertTimeout(Duration.ofMillis(300), () ->
                 library.isCorrect(0, "abstraction"));
     }
 }

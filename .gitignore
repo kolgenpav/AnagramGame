@@ -1,8 +1,10 @@
 # Start of .gitignore
-.idea
-/.idea/.gitignore
+.idea/
+# /.idea/.gitignore
 /.dcignore
-
+javadoc/
+reports/
+target/
 
 # Compiled class file
 *.class
