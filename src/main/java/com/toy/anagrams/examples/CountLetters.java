@@ -1,4 +1,4 @@
-package com.toy.anagrams.ui;
+package com.toy.anagrams.examples;
 
 public class CountLetters {
 
