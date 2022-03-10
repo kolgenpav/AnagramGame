@@ -167,7 +167,11 @@
     <!-- See https://checkstyle.org/config_coding.html -->
     <module name="EmptyStatement"/>
     <module name="EqualsHashCode"/>
-    <module name="HiddenField"/>
+	
+	<!-- Checks local variables hiding but not parameters    -->
+    <module name="HiddenField">
+		<property name="tokens" value="VARIABLE_DEF"/>
+	</module>
     <module name="IllegalInstantiation"/>
     <module name="InnerAssignment"/>
 	
