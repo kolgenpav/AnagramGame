@@ -1,5 +1,6 @@
 package com.toy.anagrams.testrequirements;
 
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.zip.CRC32;
 
@@ -53,7 +54,7 @@ public class RecordType {
             throw new IllegalArgumentException("Message is null");
         }
         CRC32 crc = new CRC32();
-        crc.update(record.getMessage().getBytes());
+        crc.update(record.getMessage().getBytes(StandardCharsets.UTF_8));
         long checksumValue = crc.getValue();
         return checksumValue;
     }

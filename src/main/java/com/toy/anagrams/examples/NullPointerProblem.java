@@ -23,6 +23,9 @@ public final class NullPointerProblem {
             }
             System.out.println(p.getName() + " не знайдено");
         }
+
+        double a = 1000.0000000000001;
+        System.out.println(a);
     }
 
     static class Person {
