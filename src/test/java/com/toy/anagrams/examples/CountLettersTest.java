@@ -1,10 +1,10 @@
 package com.toy.anagrams.examples;
 
-import com.toy.anagrams.examples.CountLetters;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-//@Disabled
+@Disabled
 class CountLettersTest {
 
     @Test

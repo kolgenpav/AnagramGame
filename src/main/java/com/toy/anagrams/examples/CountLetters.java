@@ -3,7 +3,7 @@ package com.toy.anagrams.examples;
 public class CountLetters {
 
     /**
-     * Counts words that ends with r or s.
+     * Counts words that end with r or s.
      *
      * @param str word to be parsed
      * @return number of words
