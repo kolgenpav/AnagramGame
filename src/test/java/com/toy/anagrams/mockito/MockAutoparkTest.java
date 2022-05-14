@@ -14,14 +14,15 @@ import static org.mockito.Mockito.verify;
 class MockAutoparkTest {
 
     private Autopark autopark = mock(Autopark.class);
+//    @Mock
+//    Autopark autopark;
 
     @Mock
     private Car car;
 
     @Test
     void testAssignRoute() {
-        /* For Mock autopark */
-        doNothing().when(car).driveTo("Sweet home Alabama");
+        /*Invoke method that will be verified*/
         car.driveTo("Sweet home Alabama");
         autopark.add(car);
         /* For Mock autopark */
