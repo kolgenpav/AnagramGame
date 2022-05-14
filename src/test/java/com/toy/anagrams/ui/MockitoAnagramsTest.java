@@ -29,17 +29,17 @@ class MockitoAnagramsTest {
 
     @Test
     void testCheck() {
-        /* Конфігуруваня метода заглушки */
+        /* Конфігурування методу заглушки */
         when(wordLibrary.isCorrect(0, "abstraction")).thenReturn(true);
         /* Створення об`єкту системи, що тестується (SUT) */
         Anagrams anagrams = new Anagrams(wordLibrary, feedbackLabel, guessedWord);
         /* Тестування методу SUT */
         assertTrue(anagrams.check(0, "abstraction"));
-        /* Верифікація виклику метода */
+        /* Верифікація виклику методу тестового дублікату*/
         verify(feedbackLabel).setText("Correct! Try a new word!");
         /* Тестування методу SUT */
         assertFalse(anagrams.check(0, "qwerty"));
-        /* Верифікація виклику метода */
+        /* Верифікація виклику методу тестового дублікату*/
         verify(guessedWord).setText("");
     }
 }
