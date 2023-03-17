@@ -2,7 +2,6 @@ package com.toy.anagrams.testrequirements;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -16,19 +15,20 @@ import static org.junit.jupiter.api.Assertions.assertThrowsExactly;
 import static org.junit.jupiter.api.Assertions.assertTimeout;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-@Disabled
+//@Disabled
 class RecordTypeTest {
 
-    RecordType record;
+    RecordType myRecord;
 
     @BeforeEach
-    void setUp(){
-        record = new RecordType();
+    void setUp() {
+        myRecord = new RecordType();
     }
 
     @Test
-    public void checkEmptyInit(){
-        assertTrue(record.isEmpty());
+    void checkEmptyInit() {
+        assertTrue(myRecord.isEmpty());
+        assertEquals(0, myRecord.getCrc());
     }
 
     @ParameterizedTest(name = "{index} ==> for message=\"{0}\" checksum is {1} and empty is {2}")
@@ -37,14 +37,13 @@ class RecordTypeTest {
             "'', 0, true",
             "'Hello World!123', 4155721158, false"
     })
-    public void testCalculateAndSetCRC(String message, long checksum, boolean isEmpty){
+    void testSetRecordCrc(String message, long checksum, boolean empty) {
         /*Перевіряється незалежність від початкового значення*/
-        record.setCrc(12345);
-        record.setMessage(message);
-        RecordType.calculateAndSetCRC(record);
-        long expResult = checksum;
-        assertEquals(expResult, record.getCrc());
-        assertEquals(isEmpty, record.isEmpty());
+        myRecord.setCrc(12345);
+        myRecord.setMessage(message);
+        RecordUtil.setRecordCrc(myRecord);
+        assertEquals(checksum, myRecord.getCrc());
+        assertEquals(empty, myRecord.isEmpty());
     }
 
     @ParameterizedTest(name = "{index} ==> for message=\"{0}\" checksum is {1}, isCorrect is {2} and empty is {3}")
@@ -52,48 +51,55 @@ class RecordTypeTest {
             "'Hello World!', 472456355, true, false",
             "'Hello World!', 12345, false, false"
     })
-    public void testCheckCRC(String message, long checksum, boolean isCorrect, boolean isEmpty){
-        record.setMessage(message);
-        record.setCrc(checksum);
-        record.setEmpty(isEmpty);
-        assertEquals(isCorrect, RecordType.checkCRC(record));
-        assertEquals(isEmpty, record.isEmpty());
+    void testCheckRecordCrc(String message, long checksum, boolean isCorrect, boolean empty) {
+        myRecord.setMessage(message);
+        myRecord.setCrc(checksum);
+        myRecord.setEmpty(empty);
+        assertEquals(isCorrect, RecordUtil.checkRecordCrc(myRecord));
+        assertEquals(empty, myRecord.isEmpty());
     }
 
     @Test
-    void testNullMessageCalculateAndSetCRC() {
+    void testExceedLengthMessageSetRecordCrc() {
         Exception exception = assertThrowsExactly(IllegalArgumentException.class, () ->
-                RecordType.calculateAndSetCRC(record));
+                myRecord.setMessage("Hello World!Hello World!"));
+        assertEquals("Message length exceeds 15 chars", exception.getMessage());
+    }
+
+    @Test
+    void testNullMessageSetRecordCrc() {
+        Exception exception = assertThrowsExactly(IllegalArgumentException.class, () ->
+                RecordUtil.setRecordCrc(myRecord));
         assertEquals("Message is null", exception.getMessage());
     }
 
     @RepeatedTest(3)
-    public void testRepeateedCalculateAndSetCRC(){
-            record.setMessage("Hello World!");
-            RecordType.calculateAndSetCRC(record);
-            long expResult = 472456355;
-            assertEquals(expResult, record.getCrc());
-            assertFalse(record.isEmpty());
+    void testRepeatedSetRecordCrc() {
+        myRecord.setMessage("Hello World!");
+        RecordUtil.setRecordCrc(myRecord);
+        long expResult = 472456355;
+        assertEquals(expResult, myRecord.getCrc());
+        assertFalse(myRecord.isEmpty());
     }
 
     @Test
-    public void testReinitCalculateAndSetCRC(){
-        record.setMessage("Hello World!");
+    void testReInitSetRecordCrc() {
+        myRecord.setMessage("Hello World!");
         /* Повторна ініціалізація */
-        record = new RecordType();
-        record.setMessage("Hello World!");
-        RecordType.calculateAndSetCRC(record);
+        myRecord = new RecordType();
+        myRecord.setMessage("Hello World!");
+        RecordUtil.setRecordCrc(myRecord);
         long expResult = 472456355;
-        assertEquals(expResult, record.getCrc());
-        assertFalse(record.isEmpty());
+        assertEquals(expResult, myRecord.getCrc());
+        assertFalse(myRecord.isEmpty());
     }
 
     @Test
     void testStabilityWithTimeout() {
-        record.setMessage("Hello World!");
+        myRecord.setMessage("Hello World!");
         for (int i = 0; i < 10000; i++) {
-            assertTimeout(Duration.ofMillis(5000), () ->
-                    RecordType.calculateAndSetCRC(record));
+            assertTimeout(Duration.ofMillis(100), () ->
+                    RecordUtil.setRecordCrc(myRecord));
         }
     }
 }
