@@ -2,14 +2,14 @@ package com.toy.anagrams.examples;
 
 /**
  * The Halstead base metrics calculation example from
- * https://www.geeksforgeeks.org/software-engineering-halsteads-software-metrics/
+ * <a href="https://www.geeksforgeeks.org/software-engineering-halsteads-software-metrics/">...</a>
  * to check the Metrics Reload plugin results.
  * The example results stated:
  * n1=14    N1=53    n2=10    N2=38  N=N1+N2=91 n=24 V=417
  */
 public class HalsteadMetricsCalculation {
 
-    int sort(int x[], int n) {
+    int sort(int[] x, int n) {
         int i, j, save, im1;
         /*This function sorts array x in ascending order */
         if (n < 2) return 1;
