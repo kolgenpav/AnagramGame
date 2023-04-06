@@ -1,11 +1,10 @@
 package com.toy.anagrams.integrationtest.stub;
 
+/*Stub should not contain any fields. Return methods should return some constants.
+* Void method should be empty.*/
 public class StubOne extends One {
 
-    private String text;
-
     public StubOne() {
-        super();
     }
 
     @Override
@@ -15,12 +14,11 @@ public class StubOne extends One {
 
     @Override
     public String getText() {
-        return text;
+        return "Stub";
     }
 
     @Override
     public void setText(String text) {
-        this.text = text;
     }
 }
 

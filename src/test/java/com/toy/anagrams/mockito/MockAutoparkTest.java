@@ -13,6 +13,8 @@ import static org.mockito.Mockito.verify;
 @ExtendWith(MockitoExtension.class)
 class MockAutoparkTest {
 
+    /*Mock is artificial class, only configured method will return value,
+    * other return null*/
     private Autopark autopark = mock(Autopark.class);
 //    @Mock
 //    Autopark autopark;

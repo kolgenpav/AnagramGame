@@ -9,11 +9,13 @@ class StubTwoTest {
 
     @Test
     void testResume() {
-        IOne one = new StubOne();
         /*Stubbing One functionality*/
+        IOne one = new StubOne();
+        /*Stub has empty set method, so parameter does not matter*/
         one.setText("Unit Test");
+        /*Stub injecting*/
         Two two = new Two(one);
-        String expected = "Unit Test_0";
+        String expected = "Stub_0";
         String actual = two.resume();
         Assertions.assertEquals(expected,actual);
     }

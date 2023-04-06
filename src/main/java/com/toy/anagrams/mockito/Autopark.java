@@ -8,6 +8,7 @@ public class Autopark {
     private Set<Car> cars;
 
     public Autopark() {
+        System.out.println("Autopark constructor run");
         this.cars = new HashSet<>();
     }
 
