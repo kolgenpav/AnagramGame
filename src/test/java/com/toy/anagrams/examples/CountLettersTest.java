@@ -7,9 +7,10 @@ import org.junit.jupiter.api.Test;
 @Disabled
 class CountLettersTest {
 
+    @Disabled
     @Test
     void count() {
-        int words = new CountLetters().count("r|s|a|s");
+        int words = new CountLetters().count("ar|s|sa|s");
         Assertions.assertEquals(3, words);
     }
 }

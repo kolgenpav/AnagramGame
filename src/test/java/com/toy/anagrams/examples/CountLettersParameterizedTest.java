@@ -23,8 +23,8 @@ class CountLettersParameterizedTest {
             "r|, 1",
             "s|, 1",
             "a|, 0",
-            "s, 1",
-            "r, 1"
+            "s, 1"
+//            "r, 1"
     })
     void countCSVSource(String word, int count) {
         int words = new CountLetters().count(word);

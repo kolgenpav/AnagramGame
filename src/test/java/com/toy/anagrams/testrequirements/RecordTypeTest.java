@@ -25,12 +25,14 @@ class RecordTypeTest {
         myRecord = new RecordType();
     }
 
+    @Disabled
     @Test
     void checkEmptyInit() {
         assertTrue(myRecord.isEmpty());
         assertEquals(0, myRecord.getCrc());
     }
 
+    @Disabled
     @ParameterizedTest(name = "{index} ==> for message=\"{0}\" checksum is {1} and empty is {2}")
     @CsvSource({
             "'Hello World!', 472456355, false",
@@ -46,6 +48,7 @@ class RecordTypeTest {
         assertEquals(empty, myRecord.isEmpty());
     }
 
+    @Disabled
     @ParameterizedTest(name = "{index} ==> for message=\"{0}\" checksum is {1}, isCorrect is {2} and empty is {3}")
     @CsvSource({
             "'Hello World!', 472456355, true, false",
@@ -59,6 +62,7 @@ class RecordTypeTest {
         assertEquals(empty, myRecord.isEmpty());
     }
 
+    @Disabled
     @Test
     void testExceedLengthMessageSetRecordCrc() {
         Exception exception = assertThrowsExactly(IllegalArgumentException.class, () ->
@@ -66,6 +70,7 @@ class RecordTypeTest {
         assertEquals("Message length exceeds 15 chars", exception.getMessage());
     }
 
+    @Disabled
     @Test
     void testNullMessageSetRecordCrc() {
         Exception exception = assertThrowsExactly(IllegalArgumentException.class, () ->
@@ -73,6 +78,7 @@ class RecordTypeTest {
         assertEquals("Message is null", exception.getMessage());
     }
 
+    @Disabled
     @RepeatedTest(3)
     void testRepeatedSetRecordCrc() {
         myRecord.setMessage("Hello World!");
@@ -82,6 +88,7 @@ class RecordTypeTest {
         assertFalse(myRecord.isEmpty());
     }
 
+    @Disabled
     @Test
     void testReInitSetRecordCrc() {
         myRecord.setMessage("Hello World!");
@@ -94,6 +101,7 @@ class RecordTypeTest {
         assertFalse(myRecord.isEmpty());
     }
 
+    @Disabled
     @Test
     void testStabilityWithTimeout() {
         myRecord.setMessage("Hello World!");

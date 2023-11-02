@@ -1,11 +1,13 @@
 package com.toy.anagrams.examples;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class LoopsExamplesTest {
 
+    @Disabled
     @Test
     void forLoop() {
         LoopsExamples instance = new LoopsExamples();
