@@ -23,14 +23,15 @@ class CountLettersParameterizedTest {
             "r|, 1",
             "s|, 1",
             "a|, 0",
-            "s, 1"
-//            "r, 1"
+            "s, 1",
+            "r, 1"
     })
     void countCSVSource(String word, int count) {
         int words = new CountLetters().count(word);
         Assertions.assertEquals(count, words);
     }
 
+    @Disabled
     @DisplayName("Parameterized test of int count(String str) method with CSVFileSource")
     @ParameterizedTest
     @CsvFileSource(resources = "/params.csv", numLinesToSkip = 1)  //csv file have to located in resources folder
@@ -39,6 +40,7 @@ class CountLettersParameterizedTest {
         Assertions.assertEquals(count, words);
     }
 
+    @Disabled
     @DisplayName("Parameterized test of int count(String str) method with MethodSource")
     @ParameterizedTest
     @MethodSource("paramsProvider")

@@ -13,11 +13,12 @@ public final class NullPointerProblem {
 
     /**
      * Entry point.
+     *
      * @param args
      */
     public static void main(final String[] args) {
         Set<Person> persons = new HashSet<>();
-        for (Person p:persons) {
+        for (Person p : persons) {
             if (p != null) {
                 System.out.println(p.getName());
             }

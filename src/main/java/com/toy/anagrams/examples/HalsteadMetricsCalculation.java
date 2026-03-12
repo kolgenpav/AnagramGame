@@ -27,11 +27,12 @@ public class HalsteadMetricsCalculation {
 
     /**
      * THe function from my course.
+     *
      * @param g0
      * @param g1
      * @return
      */
-    int getGCD(int g0, int g1){
+    int getGCD(int g0, int g1) {
         while (g1 != 0) {
             int g2 = g0 % g1;
             g0 = g1;

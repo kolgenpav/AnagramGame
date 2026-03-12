@@ -1,5 +1,8 @@
 package com.toy.anagrams.lib;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  * Class with arrays of unscrambled and scrambled words and the game logic method implantation.
  */
@@ -133,7 +136,8 @@ final class StaticWordLibrary implements AbstractWordLibrary {
         try {
             Thread.sleep(100);
         } catch (InterruptedException e) {
-            e.printStackTrace();
+//            e.printStackTrace();
+            Logger.getLogger(StaticWordLibrary.class.getName()).log(Level.WARNING, "Thread was interrupted");
             Thread.currentThread().interrupt();
         }
         return userGuess.equals(getWord(idx));

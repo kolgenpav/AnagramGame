@@ -10,7 +10,7 @@ public final class RecordUtil {
      *
      * @param myRecord запис, для якого обчислюється контрольна сума
      */
-    public static void setRecordCrc(RecordType myRecord) {
+    public static void setRecordCrc(final RecordType myRecord) {
         System.out.println("Розрахунок та встановлення значення crc");
         long checksumValue = calculateCrc(myRecord);
         myRecord.setCrc(checksumValue);
