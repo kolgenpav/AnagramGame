@@ -2,49 +2,12 @@ package com.toy.anagrams.ui;
 
 import com.toy.anagrams.lib.AbstractWordLibrary;
 
-import java.awt.Dimension;
-import java.awt.Point;
-import java.awt.Toolkit;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.SwingUtilities;
-import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.*;
 
 /**
  * Main windows of the game. Entry point of app.
  */
 public class Anagrams extends JFrame {
-
-    /**
-     * Entry point method.
-     *
-     * @param args command line args don't used
-     */
-    public static void main(final String[] args) {
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-         */
-        try {
-            javax.swing.UIManager.LookAndFeelInfo[] installedLookAndFeels =
-                    javax.swing.UIManager.getInstalledLookAndFeels();
-            for (javax.swing.UIManager.LookAndFeelInfo installedLookAndFeel : installedLookAndFeels) {
-                if ("Nimbus".equals(installedLookAndFeel.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(installedLookAndFeel.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException
-                | UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Anagrams.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        SwingUtilities.invokeLater(() -> new Anagrams().setVisible(true));
-    }
-
     /**
      * Array index init.
      */
@@ -52,40 +15,46 @@ public class Anagrams extends JFrame {
     /**
      * Instance of WordLibrary.
      */
-    private final transient  AbstractWordLibrary wordLibrary;
+    private final transient AbstractWordLibrary wordLibrary;
+
+//    /**
+//     * Constructor that initialize WordLibrary and Swing components.
+//     *
+//     * @param awordLibrary   WordLibrary instance
+//     * @param afeedbackLabel JLabel for feedback JTextField
+//     * @param anextTrial     next scrambled word JButton
+//     * @param aguessedWord   feedback JTextField
+//     */
+//    public Anagrams(final AbstractWordLibrary awordLibrary, final JLabel afeedbackLabel,
+//                    final JButton anextTrial, final JTextField aguessedWord) {
+//        this.wordLibrary = awordLibrary;
+//        this.feedbackLabel = afeedbackLabel;
+//        this.nextTrial = anextTrial;
+//        this.guessedWord = aguessedWord;
+//    }
 
     /**
      * Constructor that initialize WordLibrary and Swing components.
+     * For testing purpose only.
      *
-     * @param awordLibrary   WordLibrary instance
-     * @param afeedbackLabel JLabel for feedback JTextField
-     * @param anextTrial     next scrambled word JButton
-     * @param aguessedWord   feedback JTextField
+     * @param wordLibrary   WordLibrary instance
+     * @param feedbackLabel JLabel for feedback JTextField
+     * @param guessedWord   feedback JTextField
      */
-    public Anagrams(final AbstractWordLibrary awordLibrary, final JLabel afeedbackLabel,
-                    final JButton anextTrial, final JTextField aguessedWord) {
-        this.wordLibrary = awordLibrary;
-        this.feedbackLabel = afeedbackLabel;
-        this.nextTrial = anextTrial;
-        this.guessedWord = aguessedWord;
+    public Anagrams(final AbstractWordLibrary wordLibrary, final JLabel feedbackLabel,
+                    final JTextField guessedWord) {
+        this.wordLibrary = wordLibrary;
+//        this.feedbackLabel = feedbackLabel;
+//        this.guessedWord = guessedWord;
+        /* SpotBugs suggestion to avoid possible NPE in the future,
+           so we create new JLabel and JTextField instances with the same text as the original ones.
+         */
+        this.feedbackLabel = new JLabel(feedbackLabel.getText());
+        this.guessedWord = new JTextField(guessedWord.getText());
     }
 
     /**
-     * Constructor that initialize WordLibrary and Swing components.
-     *
-     * @param awordLibrary   WordLibrary instance
-     * @param afeedbackLabel JLabel for feedback JTextField
-     * @param aguessedWord   feedback JTextField
-     */
-    public Anagrams(final AbstractWordLibrary awordLibrary, final JLabel afeedbackLabel,
-                    final JTextField aguessedWord) {
-        this.wordLibrary = awordLibrary;
-        this.feedbackLabel = afeedbackLabel;
-        this.guessedWord = aguessedWord;
-    }
-
-    /**
-     * Defoault constructor.
+     * Default constructor.
      */
     public Anagrams() {
         wordLibrary = AbstractWordLibrary.getDefault();
@@ -95,10 +64,14 @@ public class Anagrams extends JFrame {
         scrambledWord.setText(wordLibrary.getScrambledWord(wordIdx));
         pack();
         guessedWord.requestFocusInWindow();
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        Dimension frameSize = getSize();
-        setLocation(new Point((screenSize.width - frameSize.width) / 2,
-                (screenSize.height - frameSize.width) / 2));
+        /* SpotBugs reported a bug in the manual centering code above
+         * (it used frameSize.width for both axes), so we rely on
+         * setLocationRelativeTo(null) instead to center the window. */
+//        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+//        Dimension frameSize = getSize();
+//        setLocation(new Point((screenSize.width - frameSize.width) / 2,
+//                (screenSize.height - frameSize.width) / 2));
+        setLocationRelativeTo(null);
     }
 
     private void initComponents() {
@@ -113,10 +86,7 @@ public class Anagrams extends JFrame {
         javax.swing.JPanel buttonsPanel = new javax.swing.JPanel();
         guessButton = new javax.swing.JButton();
         nextTrial = new javax.swing.JButton();
-        javax.swing.JMenuBar mainMenu = new javax.swing.JMenuBar();
-        javax.swing.JMenu fileMenu = new javax.swing.JMenu();
-        javax.swing.JMenuItem aboutMenuItem = new javax.swing.JMenuItem();
-        javax.swing.JMenuItem exitMenuItem = new javax.swing.JMenuItem();
+        MenuBuilder menu = getMenuBuilder();
 
         setTitle("Anagrams");
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -207,27 +177,30 @@ public class Anagrams extends JFrame {
         mainPanel.add(buttonsPanel, gridBagConstraints);
 
         getContentPane().add(mainPanel, java.awt.BorderLayout.CENTER);
+        buildMenu(menu);
+    }
 
-        fileMenu.setMnemonic('F');
-        fileMenu.setText("File");
-        aboutMenuItem.setMnemonic('A');
-        aboutMenuItem.setText("About");
-        aboutMenuItem.setToolTipText("About");
-        aboutMenuItem.addActionListener(this::aboutMenuItemActionPerformed);
+    private void buildMenu(MenuBuilder menu) {
+        menu.fileMenu().setMnemonic('F');
+        menu.fileMenu().setText("File");
+        menu.aboutMenuItem().setMnemonic('A');
+        menu.aboutMenuItem().setText("About");
+        menu.aboutMenuItem().setToolTipText("About");
+        menu.aboutMenuItem().addActionListener(this::aboutMenuItemActionPerformed);
+        menu.fileMenu().add(menu.aboutMenuItem());
+        menu.exitMenuItem().setMnemonic('E');
+        menu.exitMenuItem().setText("Exit");
+        menu.exitMenuItem().setToolTipText("Quit Team, Quit!");
+        menu.exitMenuItem().addActionListener(this::exitMenuItemActionPerformed);
+        menu.fileMenu().add(menu.exitMenuItem());
+        menu.mainMenu().add(menu.fileMenu());
+        setJMenuBar(menu.mainMenu());
+    }
 
-        fileMenu.add(aboutMenuItem);
-
-        exitMenuItem.setMnemonic('E');
-        exitMenuItem.setText("Exit");
-        exitMenuItem.setToolTipText("Quit Team, Quit!");
-        exitMenuItem.addActionListener(this::exitMenuItemActionPerformed);
-
-        fileMenu.add(exitMenuItem);
-
-        mainMenu.add(fileMenu);
-
-        setJMenuBar(mainMenu);
-
+    private static MenuBuilder getMenuBuilder() {
+        javax.swing.JMenuBar mainMenu = new javax.swing.JMenuBar();
+        javax.swing.JMenu fileMenu = new javax.swing.JMenu();
+        return new MenuBuilder(mainMenu, fileMenu);
     }
 
     private void aboutMenuItemActionPerformed(final java.awt.event.ActionEvent evt) {
