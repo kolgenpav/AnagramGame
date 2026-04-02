@@ -1,12 +1,10 @@
 package com.toy.anagrams.lib;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.time.Duration;
-import java.time.temporal.TemporalUnit;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -25,6 +23,7 @@ public class UserGuessNegativeTest {
     void isCorrect() {
         Exception exception = assertThrowsExactly(IllegalArgumentException.class, () ->
                 library.isCorrect(0, "abstraction1"));
+        assertEquals("User guess contains digits", exception.getMessage());
     }
 
 //    @Disabled
