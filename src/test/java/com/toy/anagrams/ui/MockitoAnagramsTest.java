@@ -11,8 +11,6 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -31,15 +29,15 @@ class MockitoAnagramsTest {
     void testCheck() {
         /* Конфігурування методу заглушки */
         when(wordLibrary.isCorrect(0, "abstraction")).thenReturn(true);
-        /* Створення об`єкту системи, що тестується (SUT) */
+        /* Створення об'єкта системи, що тестується (SUT) */
         Anagrams anagrams = new Anagrams(wordLibrary, feedbackLabel, guessedWord);
         /* Тестування методу SUT */
         assertTrue(anagrams.check(0, "abstraction"));
-        /* Верифікація виклику методу тестового дублікату*/
+        /* Верифікація виклику методу тестового дубліката*/
         verify(feedbackLabel).setText("Correct! Try a new word!");
         /* Тестування методу SUT */
         assertFalse(anagrams.check(0, "qwerty"));
-        /* Верифікація виклику методу тестового дублікату*/
+        /* Верифікація виклику методу тестового дубліката*/
         verify(guessedWord).setText("");
     }
 }
